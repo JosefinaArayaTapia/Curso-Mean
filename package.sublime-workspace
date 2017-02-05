@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"body",
+				"bodyParser"
+			],
+			[
 				"Pro",
 				"Programa\tclass"
 			],
@@ -51,16 +55,16 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 87.0,
-		"last_filter": "Package Control: instal",
+		"height": 127.0,
+		"last_filter": "Package Control: ins",
 		"selected_items":
 		[
 			[
-				"Package Control: instal",
+				"Package Control: ins",
 				"Package Control: Install Package"
 			],
 			[
-				"Package Control: ins",
+				"Package Control: instal",
 				"Package Control: Install Package"
 			],
 			[
@@ -72,7 +76,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 485.0
+		"width": 467.0
 	},
 	"console":
 	{
@@ -92,6 +96,10 @@
 	},
 	"file_history":
 	[
+		"/Volumes/Archivos/Proyectos/Curso-Mean/api-restful-favoritos/index.js",
+		"/Volumes/Archivos/Proyectos/Curso-Mean/Curso-mean.sublime-project",
+		"/Volumes/Archivos/Proyectos/Curso-Mean/calculadora.js",
+		"/Volumes/Archivos/Proyectos/Curso-Mean/Curso-mean.sublime-workspace",
 		"/Volumes/Archivos/Proyectos/Curso-TypeScript/prueba.ts",
 		"/Users/Josefina/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/Josefina/Library/Application Support/Sublime Text 3/Packages/LESS/LESS.sublime-settings",
@@ -144,7 +152,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 31.0
 	},
 	"layout":
 	{
