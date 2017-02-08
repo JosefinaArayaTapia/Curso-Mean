@@ -1,4 +1,6 @@
 'use strict'
+var Favorito = require('../models/favorito');
+
 function prueba(req,res){
 
 	var nombre = req.params.nombre;
@@ -19,13 +21,43 @@ function getFavorito(req,res){
 }
 function getFavoritos(req,res){
 
+	Favorito.find({}).sort('-_id').exec((err,favoritos)=>{
+		if(err){ 
+			res.status(500).send({Mensaje: 'Error al obtener favoritos'});
+
+		}
+		if(!favoritos){
+			res.status(404).send({Mensaje: 'No se encontraron favoritos'});
+		}
+
+		res.status(200).send({favoritos});
+
+	});
+
 
 }
 function saveFavorito(req,res){
 	
+	var favorito = new Favorito();
 	var params = req.body;
-	res.status(200).send({data: params});
 
+	favorito.title = params.title;
+	favorito.description = params.description;
+	favorito.url = params.url;
+
+	favorito.save((err,favoritoStored)=>{
+
+		if(err){
+			res.status(500).send({Mensaje: 'Error al Guardar Favorito'});
+
+		}else{
+
+			res.status(200).send({Favorito: favoritoStored});
+
+		}
+	});
+
+	
 }
 function updateFavorito(req,res){
 	
