@@ -15,7 +15,22 @@ function prueba(req,res){
 function getFavorito(req,res){
 
 	var FavoritoId = req.params.id;
-	res.status(200).send({data: FavoritoId});
+
+	Favorito.findById(FavoritoId,(err,favorito)=>{
+
+		if(err){
+			res.status(500).send({Mensaje: 'Error al obtener favorito'});
+		}
+
+		if(!favorito){
+			res.status(404).send({Mensaje: 'No se encontro favorito'});
+		}
+
+		res.status(200).send({favorito});
+
+	});
+
+
 
 
 }
@@ -61,16 +76,48 @@ function saveFavorito(req,res){
 }
 function updateFavorito(req,res){
 	
-	var params = req.body;
-	res.status(200).send({data: params});
+	var FavoritoId = req.params.id;
+	var update = req.body;
 
 
+	Favorito.findByIdAndUpdate(FavoritoId,update,(err,favoritoUpdate)=>{
+	
+	if(err){
+			res.status(500).send({Mensaje: 'Error al actualizar Favorito'});
+
+		}else{
+
+			res.status(200).send({Favorito: favoritoUpdate});
+
+		}
+
+	});
 }
+
 function deleteFavorito(req,res){
 
 	var FavoritoId = req.params.id;
-	res.status(200).send({data: FavoritoId});
 
+	Favorito.findById(FavoritoId,(err,favorito)=>{
+
+		if(err){
+			res.status(500).send({Mensaje: 'Error al obtener favorito'});
+		}
+
+		if(!favorito){
+			res.status(404).send({Mensaje: 'No se encontro favorito'});
+		}else{
+
+			favorito.remove(err => {
+
+				if(err){
+
+					res.status(500).send({Mensaje: 'Error al borrar favorito'});
+				}
+				res.status(200).send({Favorito: 'se ha eliminado el favorito'});
+			});
+		}
+	});
 }
 
 
