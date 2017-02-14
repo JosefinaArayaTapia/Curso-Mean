@@ -11,10 +11,4 @@ api.post('/favorito',FavoritoController.saveFavorito);
 api.put('/favorito/:id',FavoritoController.updateFavorito);
 api.delete('/favorito/:id',FavoritoController.deleteFavorito);
 
-
-
-
-
-
-module.exports = api
-
+module.exports = api;

@@ -37,7 +37,7 @@ function getFavorito(req,res){
 function getFavoritos(req,res){
 
 	Favorito.find({}).sort('-_id').exec((err,favoritos)=>{
-		if(err){ 
+		if(err){
 			res.status(500).send({Mensaje: 'Error al obtener favoritos'});
 
 		}
@@ -52,12 +52,11 @@ function getFavoritos(req,res){
 
 }
 function saveFavorito(req,res){
-	
+
 	var favorito = new Favorito();
 	var params = req.body;
 
 	favorito.title = params.title;
-	favorito.description = params.description;
 	favorito.url = params.url;
 
 	favorito.save((err,favoritoStored)=>{
@@ -72,16 +71,16 @@ function saveFavorito(req,res){
 		}
 	});
 
-	
+
 }
 function updateFavorito(req,res){
-	
+
 	var FavoritoId = req.params.id;
 	var update = req.body;
 
-
+	console.log(FavoritoId);
 	Favorito.findByIdAndUpdate(FavoritoId,update,(err,favoritoUpdate)=>{
-	
+
 	if(err){
 			res.status(500).send({Mensaje: 'Error al actualizar Favorito'});
 
