@@ -1,16 +1,6 @@
 'use strict'
 var Favorito = require('../models/favorito');
 
-function prueba(req,res){
-
-	var nombre = req.params.nombre;
-
-	res.send({
-		data:[1,2,3,4,5],
-		message:"Hola Mundo con NodeJs y Express "+nombre
-});
-}
-
 
 function getFavorito(req,res){
 
@@ -66,7 +56,7 @@ function saveFavorito(req,res){
 
 		}else{
 
-			res.status(200).send({Favorito: favoritoStored});
+			res.status(200).send({favorito: favoritoStored});
 
 		}
 	});
@@ -78,7 +68,7 @@ function updateFavorito(req,res){
 	var FavoritoId = req.params.id;
 	var update = req.body;
 
-	console.log(FavoritoId);
+
 	Favorito.findByIdAndUpdate(FavoritoId,update,(err,favoritoUpdate)=>{
 
 	if(err){
@@ -121,7 +111,6 @@ function deleteFavorito(req,res){
 
 
 module.exports= {
-	prueba,
 	getFavorito,
 	getFavoritos,
 	saveFavorito,
